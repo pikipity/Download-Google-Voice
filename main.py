@@ -22,6 +22,11 @@ LanguageDefault="Chinese"
 LanguageList=["Chinese","English","Japanese"]
 
 
+#Update station bar message function
+def UpdateStation(Message):
+    Station.set(Message)
+
+
 #root window
 root=Tkinter.Tk()
 root.title('Google Voice Downloader')
@@ -62,5 +67,10 @@ DownloadButton.pack(side="left")
 PlayButton=Tkinter.Button(ControlFrame,text="Play Voice")
 PlayButton.pack(side="left")
 OpenFolderButton=Tkinter.Button(ControlFrame,text="Open Folder")
+#Station bar
+Station=Tkinter.StringVar()
+StationBar=Tkinter.Label(root,textvariable=Station)
+StationBar.pack(fill="x")
+UpdateStation("Let's take liberties with Google! (╯▔▽▔)╯")
 
 root.mainloop()
