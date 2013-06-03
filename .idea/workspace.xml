@@ -5,6 +5,7 @@
     <ignored path="Google voice.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/main.py" changelist="26593ce9-3b5d-4234-9d0e-29d774b599ac" time="1370271696756" ignored="false" />
+    <file path="/README.md" changelist="26593ce9-3b5d-4234-9d0e-29d774b599ac" time="1370272123309" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +22,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="8" selection-start="2893" selection-end="2893" vertical-scroll-proportion="0.44700462">
+            <state line="95" column="0" selection-start="2885" selection-end="2885" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#17#31#0" expanded="true" />
               </folding>
@@ -32,10 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../video-to-txt/main/video-to-txt-main/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="96" selection-start="10500" selection-end="10511" vertical-scroll-proportion="0.0">
+            <state line="223" column="96" selection-start="10500" selection-end="10511" vertical-scroll-proportion="0.60570073">
               <folding>
                 <element signature="e#17#31#0" expanded="true" />
               </folding>
@@ -54,6 +55,7 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -343,18 +345,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../video-to-txt/main/video-to-txt-main/main.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="96" selection-start="10500" selection-end="10511" vertical-scroll-proportion="0.0">
+        <state line="95" column="0" selection-start="2885" selection-end="2885" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#17#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="8" selection-start="2893" selection-end="2893" vertical-scroll-proportion="0.44700462">
+        <state line="5" column="57" selection-start="225" selection-end="225" vertical-scroll-proportion="0.17281106">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../video-to-txt/main/video-to-txt-main/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="96" selection-start="10500" selection-end="10511" vertical-scroll-proportion="0.60570073">
           <folding>
             <element signature="e#17#31#0" expanded="true" />
           </folding>

@@ -93,7 +93,7 @@ def DownloadVoiceMainFunction():
         pass
     else:
         UpdateStation("Get all information. And Information are correct.")
-        
+
 #########################################################################
 
 #root window
