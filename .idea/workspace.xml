@@ -4,7 +4,7 @@
     <list default="true" id="26593ce9-3b5d-4234-9d0e-29d774b599ac" name="Default" comment="" />
     <ignored path="Google voice.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/main.py" changelist="26593ce9-3b5d-4234-9d0e-29d774b599ac" time="1370261984041" ignored="false" />
+    <file path="/main.py" changelist="26593ce9-3b5d-4234-9d0e-29d774b599ac" time="1370271696756" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +24,18 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="56" selection-start="2330" selection-end="2330" vertical-scroll-proportion="0.7235023">
+            <state line="95" column="8" selection-start="2893" selection-end="2893" vertical-scroll-proportion="0.44700462">
+              <folding>
+                <element signature="e#17#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../video-to-txt/main/video-to-txt-main/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="223" column="96" selection-start="10500" selection-end="10511" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#17#31#0" expanded="true" />
               </folding>
@@ -325,16 +336,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1115" column="0" selection-start="46680" selection-end="46680" vertical-scroll-proportion="0.33254156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../video-to-txt/main/video-to-txt-main/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="62" selection-start="150" selection-end="212" vertical-scroll-proportion="-6.9453683">
-          <folding />
+        <state line="223" column="96" selection-start="10500" selection-end="10511" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#17#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="56" selection-start="2330" selection-end="2330" vertical-scroll-proportion="0.7235023">
+        <state line="95" column="8" selection-start="2893" selection-end="2893" vertical-scroll-proportion="0.44700462">
           <folding>
             <element signature="e#17#31#0" expanded="true" />
           </folding>

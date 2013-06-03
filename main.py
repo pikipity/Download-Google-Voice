@@ -2,6 +2,9 @@
 import Tkinter
 import ttk
 import sys
+import threading
+import os
+import tkFileDialog
 
 #icon path
 if sys.platform[:5] == 'linux' or sys.platform=='darwin':
@@ -21,11 +24,77 @@ LanguageDefault="Chinese"
 #Language can be selected
 LanguageList=["Chinese","English","Japanese"]
 
-
 #Update station bar message function
 def UpdateStation(Message):
     Station.set(Message)
 
+########## Data Path Button #############################################
+def DataPathButton():
+    DataPathChoosing=tkFileDialog.askdirectory(title="Storage Path",initialdir=DataDefaultPath)
+    if DataPathChoosing:
+        DataPathEntry.delete(0,"end")
+        DataPathEntry.insert("end",DataPathChoosing)
+
+########## Download Voice button ########################################
+#Take Information function
+def TakeInformation():
+    Message=MessageEntry.get()
+    StoragePath=DataPathEntry.get().replace("\\","/")
+    if not StoragePath[len(StoragePath)-1]=="/":
+        StoragePath=StoragePath+"/"
+        DataPathEntry.delete(0,"end")
+        DataPathEntry.insert("end",StoragePath)
+    Language=LanguageChoose.get()
+    Information=[Message,StoragePath,Language]
+    return Information
+
+#Check Information
+def CheckInformation(Information):
+    Message=Information[0]
+    StoragePath=Information[1]
+    Language=Information[2]
+    #Decode Message
+    try:
+        Message.decode('utf8')
+    except:
+        pass
+    else:
+        try:
+            Message.decode("gbk")
+        except:
+            pass
+        else:
+            pass
+    #Check Storage Path
+    if not os.path.exists(StoragePath):
+        UpdateStation("Storage Path Wrong. There is not this folder.")
+        return 0
+    else:
+        #Check if language in the LanguageList
+        for Languagex in LanguageList:
+            if Language==Languagex:
+                return 1
+            else:
+                if Languagex==LanguageList[len(LanguageList)-1]:
+                    UpdateStation("Language is not supported. PLease choose a language in the list.")
+                    return 0
+                else:
+                    pass
+
+#Download Voice thread
+def DownloadVoiceButton():
+    DownloadVoiceThread=threading.Thread(target=DownloadVoiceMainFunction)
+    DownloadVoiceThread.start()
+
+#Downliad Voice Main Function
+def DownloadVoiceMainFunction():
+    Information=TakeInformation()
+    if not CheckInformation(Information):
+        pass
+    else:
+        UpdateStation("Get all information. And Information are correct.")
+        
+#########################################################################
 
 #root window
 root=Tkinter.Tk()
@@ -48,7 +117,7 @@ DataPathLabel.pack(side="left")
 DataPathEntry=Tkinter.Entry(DataPathFrame,width=150/2)
 DataPathEntry.pack(side="left")
 DataPathEntry.insert("end",DataDefaultPath)
-DataPathButton=Tkinter.Button(DataPathFrame,text="...")
+DataPathButton=Tkinter.Button(DataPathFrame,text="...",command=DataPathButton)
 DataPathButton.pack()
 #Lagnuage
 LanguageFrame=Tkinter.Frame(root)
@@ -62,7 +131,7 @@ LanguageSelect.pack(side="left")
 #Control Button
 ControlFrame=Tkinter.Frame(root)
 ControlFrame.pack()
-DownloadButton=Tkinter.Button(ControlFrame,text="Download Voice")
+DownloadButton=Tkinter.Button(ControlFrame,text="Download Voice",command=DownloadVoiceButton)
 DownloadButton.pack(side="left")
 PlayButton=Tkinter.Button(ControlFrame,text="Play Voice")
 PlayButton.pack(side="left")
