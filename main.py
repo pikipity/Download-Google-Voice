@@ -155,12 +155,13 @@ def PlayVoiceFunction():
         UpdateStation("Please download at least one file.")
     else:
         #play voice
+        StoragePathOs=StoragePath.replace(' ','\ ')
         if os.path.isfile(StoragePath):
             UpdateStation("Begin to play recent download file.")
             if sys.platform[:5]=="linux":
-                os.popen2('aplay -q' + StoragePath)
+                os.popen2('aplay -q' + StoragePathOs)
             elif sys.platform=='darwin':
-                os.system('afplay '+StoragePath)
+                os.system('afplay '+StoragePathOs)
             else:
                 UpdateStation("Now, it cannot play voice in Windows.")
             #    WindowsPlayVoice(StoragePath)
@@ -211,11 +212,14 @@ def PlayVoiceFunction():
 def OpenFolderFunction():
     Information=TakeInformation()
     Path=Information[1]
-    Path=Path.replace(' ','\ ')
-    if sys.platform=='darwin':
-        os.system("open "+Path)
+    PathOs=Path.replace(' ','\ ')
+    if os.path.exists(Path):
+        if sys.platform=='darwin':
+            os.system("open "+PathOs)
+        else:
+            UpdateStation("Now, Only can open folder in Mac")
     else:
-        UpdateStation("Now, Only can open folder in Mac")
+        UpdateStation("The path you input doesn't exist.")
 ######################################################################
 
 #root window
