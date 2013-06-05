@@ -11,11 +11,11 @@ import urllib
 if sys.platform[:5] == 'linux' or sys.platform=='darwin':
     ProgramPath=sys.argv[0][0:sys.argv[0].rfind('/')]#no final "/"
     IconPath=ProgramPath+'/icon/Voice.icns'
-else:
+elif sys.platform[:3]=='win':
     ProgramPath=sys.argv[0]
     ProgramPath=ProgramPath.replace('\\','/')
     ProgramPath=ProgramPath[0:ProgramPath.rfind('/')]#no final "/"
-    IconPath=ProgramPath+'icon/Voice.ico'
+    IconPath=ProgramPath+'/icon/Voice.ico'
 #Default Message
 MessageDefault=u"一起调戏谷歌娘"
 #Data Default Path
@@ -128,6 +128,8 @@ def DownloadMP3(Information):
         StoragePath=StoragePath+Message.decode('utf-8')[0:9].encode('utf-8')+'.mp3'
     else:
         StoragePath=StoragePath+Message+'.mp3'
+    if sys.platform[:3]=='win':
+        StoragePath=StoragePath.decode('utf-8').encode('gbk')
     try:
         urllib.urlretrieve(WebSite,StoragePath,DownloadProcess)
     except:
@@ -155,17 +157,18 @@ def PlayVoiceFunction():
         UpdateStation("Please download at least one file.")
     else:
         #play voice
-        StoragePathOs=StoragePath.replace(' ','\ ')
         if os.path.isfile(StoragePath):
             UpdateStation("Begin to play recent download file.")
             if sys.platform[:5]=="linux":
-                os.popen2('aplay -q' + StoragePathOs)
+                os.popen2('aplay -q \"%s\"'%StoragePath)
+                UpdateStation("Finish playing")
             elif sys.platform=='darwin':
-                os.system('afplay '+StoragePathOs)
-            else:
-                UpdateStation("Now, it cannot play voice in Windows.")
+                os.system('afplay \"%s\"'%StoragePath)
+                UpdateStation("Finish playing")
+            elif sys.platform[:3]=='win':
+                StoragePathWin=StoragePath.replace('/','\\')
+                os.system('start \"Play Google Voice\" \"%s\"'%StoragePathWin)
             #    WindowsPlayVoice(StoragePath)
-            UpdateStation("Finish playing")
         else:
             UpdateStation("You haven't download file.")
 #PLay Voice for windows
@@ -212,12 +215,11 @@ def PlayVoiceFunction():
 def OpenFolderFunction():
     Information=TakeInformation()
     Path=Information[1]
-    PathOs=Path.replace(' ','\ ')
     if os.path.exists(Path):
         if sys.platform=='darwin':
-            os.system("open "+PathOs)
+            os.system("open \"%s\""%Path)
         else:
-            UpdateStation("Now, Only can open folder in Mac")
+            UpdateStation("Now, it can open folder only in Mac")
     else:
         UpdateStation("The path you input doesn't exist.")
 ######################################################################
